@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	 <parent> 
-	 <groupId>org.springframework.boot</groupId> 
-	 <artifactId>spring-boot-starter-parent</artifactId> 
-		<version>2.3.3.RELEASE</version> 
-	</parent> 
-	
-	
- <!-- <parent>
-    <groupId>org.kie</groupId>
-    <artifactId>kie-spring-boot</artifactId>
-    <version>7.43.0-SNAPSHOT</version>
-  </parent>
-  <packaging>pom</packaging>
- -->
-	
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.3.RELEASE</version>
+	</parent>
+
+
+	<!-- <parent>
+       <groupId>org.kie</groupId>
+       <artifactId>kie-spring-boot</artifactId>
+       <version>7.43.0-SNAPSHOT</version>
+     </parent>
+     <packaging>pom</packaging>
+    -->
+
 	<groupId>com.example</groupId>
 	<artifactId>my-jbpm-boot</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
@@ -48,67 +48,125 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 		    <groupId>org.kie</groupId>
 		    <artifactId>kie-server-spring-boot-starter</artifactId>
-		    <version>7.42.0.Final</version>
+		    <version>7.6.0.Final</version>
 		    <exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
 					<artifactId>jcl-over-slf4j</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-		
-		<!-- <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency> -->
 
-		<!-- <dependency> <groupId>org.kie</groupId> <artifactId>jbpm-spring-boot-starter-basic</artifactId> 
+		<!-- https://mvnrepository.com/artifact/org.kie/jbpm-spring-boot-autoconfiguration -->
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>jbpm-spring-boot-autoconfiguration</artifactId>
+			<version>7.42.0.Final</version>
+			<!-- <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-annotations</artifactId>
+                </exclusion>
+            </exclusions> -->
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.kie/jbpm-spring-boot-starter-basic -->
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>jbpm-spring-boot-starter-basic</artifactId>
+			<version>7.42.0.Final</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.glassfish.jaxb</groupId>
+					<artifactId>jaxb-runtime</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.kie/kie-server-spring-boot-starter-jbpm -->
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-server-spring-boot-starter-jbpm</artifactId>
+			<version>7.42.0.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.kie</groupId> <artifactId>jbpm-spring-boot-starter-basic</artifactId>
 			<version>7.42.0.Final</version> </dependency> -->
 
-		<!-- <dependency> <groupId>org.kie</groupId> <artifactId>jbpm-spring-boot-autoconfiguration</artifactId> 
-			<version>7.42.0.Final</version> <exclusions> <exclusion> <groupId>org.jboss.spec.javax.transaction</groupId> 
-			<artifactId>jboss-transaction-api_1.2_spec</artifactId> </exclusion> </exclusions> 
+		<!-- <dependency> <groupId>org.kie</groupId> <artifactId>jbpm-spring-boot-autoconfiguration</artifactId>
+			<version>7.42.0.Final</version> <exclusions> <exclusion> <groupId>org.jboss.spec.javax.transaction</groupId>
+			<artifactId>jboss-transaction-api_1.2_spec</artifactId> </exclusion> </exclusions>
 			</dependency> -->
 
-		<dependency> 
-			<groupId>org.hibernate.validator</groupId> 
-			<artifactId>hibernate-validator</artifactId> 
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
 		</dependency>
 
-		<!-- extra dependencies for swagger -->
+		<!-- swagger -->
 		<!-- <dependency>
-		  <groupId>org.apache.cxf</groupId>
-		  <artifactId>cxf-rt-rs-service-description-swagger</artifactId>
-		  <version>3.1.11</version>
-		</dependency>
-		<dependency>
-		  <groupId>io.swagger</groupId>
-		  <artifactId>swagger-jaxrs</artifactId>
-		  <version>1.5.15</version>
-		  <exclusions>
-		    <exclusion>
-		      <groupId>javax.ws.rs</groupId>
-		      <artifactId>jsr311-api</artifactId>
-		    </exclusion>
-		  </exclusions>
-		</dependency>
-			<dependency>
-		  <groupId>org.webjars</groupId>
-		  <artifactId>swagger-ui</artifactId>
-		  <version>2.2.10</version>
-		</dependency>
-		 -->
-		<dependency>
+		    <groupId>org.kie.server</groupId>
+		    <artifactId>kie-server-rest-swagger</artifactId>
+		    <version>7.42.0.Final</version>
+		</dependency> -->
+
+
+		<!-- <dependency>
+           <groupId>org.apache.cxf</groupId>
+           <artifactId>cxf-rt-rs-service-description-swagger</artifactId>
+           <version>3.3.7</version>
+       </dependency>
+
+       <dependency>
+         <groupId>io.swagger</groupId>
+         <artifactId>swagger-jaxrs</artifactId>
+         <version>1.6.2</version>
+         <exclusions>
+           <exclusion>
+             <groupId>javax.ws.rs</groupId>
+             <artifactId>jsr311-api</artifactId>
+           </exclusion>
+         </exclusions>
+       </dependency>
+
+       <dependency>
+           <groupId>org.apache.cxf</groupId>
+           <artifactId>cxf-api</artifactId>
+           <version>2.7.18</version>
+       </dependency>
+       <dependency>
+           <groupId>org.webjars</groupId>
+           <artifactId>swagger-ui</artifactId>
+           <version>3.32.5</version>
+       </dependency>
+
+-->
+		<!-- <dependency>
+           <groupId>io.springfox</groupId>
+           <artifactId>springfox-swagger-ui</artifactId>
+           <version>3.0.0</version>
+       </dependency>  -->
+
+
+
+		<!-- <dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
+		</dependency> -->
 		<dependency>
-		    <groupId>com.h2database</groupId>
-		    <artifactId>h2</artifactId>
-		    <scope>runtime</scope>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 
 
@@ -121,12 +179,28 @@
 					<groupId>org.junit.vintage</groupId>
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
+				<exclusion>
+					<groupId>net.minidev</groupId>
+					<artifactId>accessors-smart</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>jakarta.activation</groupId>
+					<artifactId>jakarta.activation-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.hamcrest</groupId>
+					<artifactId>hamcrest</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>jakarta.xml.bind</groupId>
+					<artifactId>jakarta.xml.bind-api</artifactId>
+				</exclusion>
 			</exclusions>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 		    <groupId>org.kie.server</groupId>
 		    <artifactId>kie-server-client</artifactId>
-		    <version>7.42.0.Final</version>
+		    <version>7.6.0.Final</version>
 		    <scope>test</scope>
 					<exclusions>
 						<exclusion>
@@ -138,8 +212,8 @@
 							<artifactId>jcl-over-slf4j</artifactId>
 						</exclusion>
 					</exclusions>
-		</dependency>
-		
+		</dependency> -->
+
 	</dependencies>
 
 	<build>
@@ -151,7 +225,7 @@
 		</plugins>
 	</build>
 
-	<!-- <profiles>
+	<profiles>
 		<profile>
 			<id>h2</id>
 			<activation>
@@ -164,6 +238,6 @@
 				</dependency>
 			</dependencies>
 		</profile>
-	</profiles> -->
+	</profiles>
 
 </project>
